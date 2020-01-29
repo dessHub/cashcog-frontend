@@ -1,15 +1,15 @@
 <template>
-  <v-layout class="d-flex mb-1">
+  <v-container fluid class="d-flex">
     <v-data-table
         :headers="headers"
         :items="desserts"
-        class="elevation-1"
+        class="elevation-1 home-table"
     >
         <template v-slot:item.calories="{ item }">
         <v-chip :color="getColor(item.calories)" dark>{{ item.calories }}</v-chip>
         </template>
     </v-data-table>
-  </v-layout>
+  </v-container>
 </template>
 
 <script>
@@ -124,10 +124,7 @@ export default {
 </script>
 
 <style scoped>
-.home-hero {
-  background: url("http://source.unsplash.com/0BhSKStVtdM");
-  background-size: cover;
+.home-table {
   width: 100%;
-  height: 100%;
 }
 </style>

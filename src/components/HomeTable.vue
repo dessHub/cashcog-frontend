@@ -1,22 +1,21 @@
 <template>
   <v-container grid-list-lg>
-    <div
-     v-if="isFetching">
+    <div v-if="isFetching">
       <v-progress-linear
         indeterminate
         color="brown lighten-2"
       ></v-progress-linear>
-      <br>
+      <br />
       <v-progress-linear
         indeterminate
         color="brown lighten-2"
       ></v-progress-linear>
-      <br>
+      <br />
       <v-progress-linear
         indeterminate
         color="brown lighten-2"
       ></v-progress-linear>
-      <br>
+      <br />
       <v-progress-linear
         indeterminate
         color="brown lighten-2"
@@ -34,7 +33,9 @@
         }}</v-chip>
       </template>
       <template v-slot:item.uuid="{ item }">
-          <v-chip class="brown darken-4" dark @click="goToExpense(item.uuid)">View</v-chip>
+        <v-chip class="brown darken-4" dark @click="goToExpense(item.uuid)"
+          >View</v-chip
+        >
       </template>
     </v-data-table>
   </v-container>
@@ -56,7 +57,7 @@ export default {
         { text: "Amount", value: "amount" },
         { text: "Currency", value: "currency" },
         { text: "Employee", value: "fullName" },
-        { text: "Action", value: "uuid"}
+        { text: "Action", value: "uuid" }
       ],
       value: 0
     };
@@ -68,7 +69,7 @@ export default {
       else return "green";
     },
     goToExpense(uuid) {
-      this.$router.push({name:'expense',params:{uuid}})
+      this.$router.push({ name: "expense", params: { uuid } });
     }
   }
 };

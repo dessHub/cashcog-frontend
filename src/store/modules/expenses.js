@@ -15,18 +15,22 @@ export default {
   actions: {
     async getExpenses({ commit }) {
       commit("fetchingData");
-      let response = await api.get("/api/expenses");
-      // eslint-disable-next-line no-console
-      console.log("data", response.data);
+      let fetchData = {
+        method: "GET",
+        headers: new Headers()
+      };
+      let response = await api("/api/expenses", fetchData);
       response.status === 200
         ? commit("addExpensesToStore", response.data)
         : commit("fetchingExpensesFail", response.message);
     },
     async getExpense({ commit }, path) {
       commit("fetchingData");
-      let response = await api.get(`/api${path}`);
-      // eslint-disable-next-line no-console
-      console.log("data", response.data);
+      let fetchData = {
+        method: "GET",
+        headers: new Headers()
+      };
+      let response = await api(`/api${path}`, fetchData);
       response.status === 200
         ? commit("addExpenseToStore", response.data.Expense)
         : commit("fetchingFail", response.message);
@@ -39,18 +43,23 @@ export default {
       let payload = {
         approved: dataObj.status
       };
-      let response = await api.patch(`/api${dataObj.path}`, payload);
-      // eslint-disable-next-line no-console
-      console.log("data", response);
+      let fetchData = {
+        method: "PATCH",
+        data: payload,
+        headers: new Headers()
+      };
+      let response = await api(`/api${dataObj.path}`, fetchData);
       response.status === 200
         ? commit("addExpenseToStore", response.data.Expense)
         : commit("fetchingFail", response.data.message);
     },
     async deleteExpense({ commit }, path) {
       commit("updatingData");
-      let response = await api.delete(`/api${path}`);
-      // eslint-disable-next-line no-console
-      console.log("data", response, this);
+      let fetchData = {
+        method: "DELETE",
+        headers: new Headers()
+      };
+      let response = await api(`/api${path}`, fetchData);
       response.status === 200
         ? commit("deleteSuccessful", response.data.Expense)
         : commit("fetchingFail", response.data.message);

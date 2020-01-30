@@ -1,14 +1,14 @@
 <template>
   <span>
     <v-container grid-list-lg>
-        <v-layout row>
+      <v-layout row>
         <v-flex xs12 class="text-xs-center display-1 font-weight-black my-5"
-            >All Expenses</v-flex
+          >All Expenses</v-flex
         >
-        </v-layout>
+      </v-layout>
     </v-container>
-    <home-table 
-      v-bind:expenses="getExpenses.expenses" 
+    <home-table
+      v-bind:expenses="getExpenses.expenses"
       v-bind:isFetching="isFetching"
     ></home-table>
   </span>
@@ -32,11 +32,9 @@ export default {
     ...mapState({
       isFetching: state => state.expenses.isFetching
     }),
-    ...mapGetters(
-      { 
-        getExpenses: "getExpenselist"
-      }
-      )
+    ...mapGetters({
+      getExpenses: "getExpenselist"
+    })
   }
 };
 </script>

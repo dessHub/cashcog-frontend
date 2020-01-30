@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/dessHub/cashcog-frontend.svg?branch=master)](https://travis-ci.org/dessHub/cashcog-frontend)
+
 # cashcog-frontend
 
 cashcog-frontend is front facing of [Cashcog Approval API](https://github.com/dessHub/Cashcog-API), which is a extension feature which provide approval process for Cashcog expense management software.

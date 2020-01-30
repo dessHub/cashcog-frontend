@@ -1,14 +1,40 @@
 <template>
   <v-container fluid class="d-flex">
+    <v-card class="d-flex justify-center"
+        v-if="isFetching">
+      <v-progress-linear
+        indeterminate
+        color="yellow darken-2"
+      ></v-progress-linear>
+      <br>
+      <v-progress-linear
+        indeterminate
+        color="green"
+      ></v-progress-linear>
+      <br>
+      <v-progress-linear
+        indeterminate
+        color="teal"
+      ></v-progress-linear>
+      <br>
+      <v-progress-linear
+        indeterminate
+        color="cyan"
+      ></v-progress-linear>
+    </v-card>
     <v-data-table
       :headers="headers"
-      :items="desserts"
+      :items="status ? filteredExpenses : expenses"
       class="elevation-1 home-table"
+      v-else
     >
       <template v-slot:item.approved="{ item }">
         <v-chip :color="getColor(item.approved)" dark>{{
           item.approved
         }}</v-chip>
+      </template>
+      <template v-slot:item.uuid="{ item }">
+          <v-chip dark @click="goToExpense(item.uuid)">View</v-chip>
       </template>
     </v-data-table>
   </v-container>
@@ -16,8 +42,7 @@
 
 <script>
 export default {
-
-  props: ['expenses'],
+  props: ["expenses", "isFetching", "filteredExpenses", "status"],
   data() {
     return {
       headers: [
@@ -30,16 +55,20 @@ export default {
         { text: "Status", value: "approved" },
         { text: "Amount", value: "amount" },
         { text: "Currency", value: "currency" },
-        { text: "Employee", value: "fullName" }
+        { text: "Employee", value: "fullName" },
+        { text: "Action", value: "uuid"}
       ],
-      desserts: this.expenses
+      value: 0
     };
   },
   methods: {
     getColor(value) {
-      if ( value === "Disapproved" ) return "red";
+      if (value === "Disapproved") return "red";
       else if (value === "Approved") return "orange";
       else return "green";
+    },
+    goToExpense(uuid) {
+      this.$router.push({name:'expense',params:{uuid}})
     }
   }
 };

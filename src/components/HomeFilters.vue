@@ -2,14 +2,23 @@
   <v-container grid-list-lg>
     <div>
       <v-card class="d-flex justify-center mb-6" color="lighten-2" flat tile>
-        <v-btn class="pa-2 ma-xs-1 ma-sm-2 ma-md-3 red--text text--lighten-1">
+        <v-btn 
+          class="pa-2 ma-xs-1 ma-sm-2 ma-md-3 red--text text--lighten-1"
+          @click="filterExpense('Pending')"
+        >
           New
         </v-btn>
-        <v-btn class="pa-2 ma-xs-1 ma-sm-2 ma-md-3 ">
+        <v-btn 
+          class="pa-2 ma-xs-1 ma-sm-2 ma-md-3 green--text" 
+          @click="filterExpense('Approved')"
+        >
           Approved
         </v-btn>
-        <v-btn class="pa-2 ma-xs-1 ma-sm-2 ma-md-3 ">
-          Disapproved
+        <v-btn 
+          class="pa-2 ma-xs-1 ma-sm-2 ma-md-3 orange--text"
+          @click="filterExpense('Declined')"
+        >
+          Declined
         </v-btn>
       </v-card>
     </div>
@@ -18,7 +27,8 @@
 
 <script>
 export default {
-  name: "HomeFilters"
+  name: "HomeFilters",
+  props: ["filterExpense"]
 };
 </script>
 

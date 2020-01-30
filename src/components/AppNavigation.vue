@@ -10,8 +10,10 @@
       <v-list>
         <template v-for="(item, index) in items">
           <v-list-item :key="index">
-            <v-list-item-content>
+            <v-list-item-content >
+              <router-link to="/">
               {{ item.title }}
+              </router-link>
             </v-list-item-content>
           </v-list-item>
           <v-divider :key="`divider-${index}`"></v-divider>
@@ -24,7 +26,9 @@
         @click="drawer = !drawer"
       ></v-app-bar-nav-icon>
       <v-spacer class="hidden-md-and-up"></v-spacer>
-      <v-toolbar-title>{{ appTitle }}</v-toolbar-title>
+      <v-toolbar-title>
+          <router-link to="/">{{ appTitle }}</router-link>
+      </v-toolbar-title>
       <v-btn text class="hidden-sm-and-down">Menu</v-btn>
       <v-spacer class="hidden-sm-and-down"></v-spacer>
       <v-btn text class="hidden-sm-and-down">SIGN OUT</v-btn>

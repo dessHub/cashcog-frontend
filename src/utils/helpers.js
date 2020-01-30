@@ -7,3 +7,7 @@ export const flatenEmployee = data => {
     };
   }
 };
+
+export const filterExpenses = (status, expenses) => {
+  return expenses.filter(item => item.approved === status);
+};

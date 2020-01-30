@@ -1,4 +1,3 @@
-
 <template>
   <v-container grid-list-lg>
     <v-layout row>
@@ -15,7 +14,7 @@
             </v-flex>
             <v-flex xs6 sm6 md6>
               <div class="text-center">
-                  80
+                {{ pending }}
               </div>
             </v-flex>
           </v-card-title>
@@ -26,12 +25,11 @@
         <v-card>
           <v-card-title primary-title>
             <v-flex xs6 sm6 md6>
-              <h3 class="headline text-xs-center mb-0">Approved
-</h3>
+              <h3 class="headline text-xs-center mb-0">Approved</h3>
             </v-flex>
             <v-flex xs6 sm6 md6>
               <div class="text-center">
-                  80
+                {{ approved }}
               </div>
             </v-flex>
           </v-card-title>
@@ -46,7 +44,7 @@
             </v-flex>
             <v-flex xs6 sm6 md6>
               <div class="text-center">
-                  80
+                {{ declined }}
               </div>
             </v-flex>
           </v-card-title>
@@ -58,9 +56,9 @@
 
 <script>
 export default {
-  name: "HomeHero"
+  name: "HomeHero",
+  props: ["declined", "approved", "pending"]
 };
 </script>
 
 <style scoped></style>
-

@@ -34,7 +34,7 @@
         }}</v-chip>
       </template>
       <template v-slot:item.uuid="{ item }">
-          <v-chip dark @click="goToExpense(item.uuid)">View</v-chip>
+          <v-chip class="brown darken-4" dark @click="goToExpense(item.uuid)">View</v-chip>
       </template>
     </v-data-table>
   </v-container>
@@ -63,7 +63,7 @@ export default {
   },
   methods: {
     getColor(value) {
-      if (value === "Disapproved") return "red";
+      if (value === "Declined") return "red";
       else if (value === "Approved") return "orange";
       else return "green";
     },

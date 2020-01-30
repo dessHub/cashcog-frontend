@@ -100,14 +100,12 @@
                     <v-btn 
                       class="pa-2 ma-xs-1 ma-sm-2 ma-md-3 green--text text--lighten-1" 
                       @click="updateStatus('Approved')" 
-                      v-if="expense.approved === 'Pending'"
                       >
                     Approve
                     </v-btn>
                     <v-btn 
                       class="pa-2 ma-xs-1 ma-sm-2 ma-md-3 orange--text " 
                       @click="updateStatus('Declined')" 
-                      v-if="expense.approved === 'Pending'"
                       >
                     Decline
                     </v-btn>

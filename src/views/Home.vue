@@ -1,12 +1,16 @@
 <template>
   <span>
-    <home-hero></home-hero>
+    <home-hero
+      v-bind:pending="getExpenses.pending"
+      v-bind:approved="getExpenses.approved"
+      v-bind:declined="getExpenses.declined"
+    ></home-hero>
     <home-filters
       v-bind:filterExpense="filterExpense"
     ></home-filters>
     <home-table 
       v-bind:status="status"
-      v-bind:expenses="getExpenses" 
+      v-bind:expenses="getExpenses.expenses" 
       v-bind:isFetching="isFetching"
       v-bind:filteredExpenses="filteredExpenses"
     ></home-table>

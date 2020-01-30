@@ -1,27 +1,27 @@
 <template>
-  <v-container fluid class="d-flex">
-    <v-card class="d-flex justify-center"
-        v-if="isFetching">
+  <v-container grid-list-lg>
+    <div
+     v-if="isFetching">
       <v-progress-linear
         indeterminate
-        color="yellow darken-2"
+        color="brown lighten-2"
       ></v-progress-linear>
       <br>
       <v-progress-linear
         indeterminate
-        color="green"
+        color="brown lighten-2"
       ></v-progress-linear>
       <br>
       <v-progress-linear
         indeterminate
-        color="teal"
+        color="brown lighten-2"
       ></v-progress-linear>
       <br>
       <v-progress-linear
         indeterminate
-        color="cyan"
+        color="brown lighten-2"
       ></v-progress-linear>
-    </v-card>
+    </div>
     <v-data-table
       :headers="headers"
       :items="status ? filteredExpenses : expenses"

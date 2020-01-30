@@ -14,7 +14,7 @@
             </v-flex>
             <v-flex xs6 sm6 md6>
               <div class="text-center">
-                80
+                {{ pending }}
               </div>
             </v-flex>
           </v-card-title>
@@ -29,7 +29,7 @@
             </v-flex>
             <v-flex xs6 sm6 md6>
               <div class="text-center">
-                80
+                {{ approved }}
               </div>
             </v-flex>
           </v-card-title>
@@ -44,7 +44,7 @@
             </v-flex>
             <v-flex xs6 sm6 md6>
               <div class="text-center">
-                80
+                {{ declined }}
               </div>
             </v-flex>
           </v-card-title>
@@ -56,7 +56,8 @@
 
 <script>
 export default {
-  name: "HomeHero"
+  name: "HomeHero",
+  props: ["declined", "approved", "pending"]
 };
 </script>
 

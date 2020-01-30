@@ -50,4 +50,9 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+  .v-toolbar__title > a {
+    text-decoration-line: none;
+    color: #fff;
+  }
+</style>

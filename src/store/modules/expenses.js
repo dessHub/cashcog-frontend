@@ -1,5 +1,5 @@
 import api from "../../utils/api";
-import { flatenEmployee } from "../../utils/helpers";
+import { flatenEmployee, getCount } from "../../utils/helpers";
 
 export default {
   state: {
@@ -93,17 +93,26 @@ export default {
   },
   getters: {
     getExpenselist(state) {
-      return state.expenses
-        ? state.expenses.map(expense => flatenEmployee(expense))
-        : state.expenses;
+      let obj = {
+        expenses: state.expenses
+          ? state.expenses.map(expense => flatenEmployee(expense))
+          : state.expenses,
+        pending: state.expenses ? getCount("Pending", state.expenses) : 0,
+        approved: state.expenses ? getCount("Approved", state.expenses) : 0,
+        declined: state.expenses ? getCount("Declined", state.expenses) : 0
+      };
+      return obj;
     },
     getOneExpense(state) {
       return state.expense;
     },
     expensesByStatus(state) {
-      return state.expenses
+      const filteredData = state.expenses
         ? state.expenses.filter(item => item.approved === state.status)
         : state.expenses;
+      return filteredData
+        ? filteredData.map(expense => flatenEmployee(expense))
+        : filteredData;
     }
   }
 };

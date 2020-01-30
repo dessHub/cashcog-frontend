@@ -9,22 +9,22 @@
      v-if="isFetching">
       <v-progress-linear
         indeterminate
-        color="yellow darken-2"
+        color="brown lighten-2"
       ></v-progress-linear>
       <br>
       <v-progress-linear
         indeterminate
-        color="green"
+        color="brown lighten-2"
       ></v-progress-linear>
       <br>
       <v-progress-linear
         indeterminate
-        color="teal"
+        color="brown lighten-2"
       ></v-progress-linear>
       <br>
       <v-progress-linear
         indeterminate
-        color="cyan"
+        color="brown lighten-2"
       ></v-progress-linear>
     </div>
     <v-layout row wrap v-else>
@@ -33,26 +33,13 @@
         <v-card>
           <v-card-title primary-title>
             <div>
-              <h3 class="headline text-xs-center mb-0">Expenditure Details</h3>
-              <div class="text-left">
-                <p>Amount: {{ expense.currency }}.{{ expense.amount }}</p>
-                <p>Description: {{ expense.description }}</p>
-              </div>
-            </div>
-          </v-card-title>
-        </v-card>
-      </v-flex>
-
-      <v-flex xs12 sm12 md4>
-        <v-card>
-          <v-card-title primary-title>
-            <div>
-              <h3 class="headline text-xs-center mb-0">Employee</h3>
+              <h3 class="headline text-xs-center mb-1">Expenditure Details</h3>
                 <v-divider
                 ></v-divider>
               <div class="text-left">
-                <p>First Name: {{ expense.employee.first_name }}</p>
-                <p>Last Name: {{ expense.employee.last_name }}</p>
+                <p class="font-weight-light mb-0 mt-2">Amount: 
+                  <v-chip color="gray darken-2">{{ expense.currency }}.{{ expense.amount }}</v-chip></p>
+                <p class="font-weight-light">Description: {{ expense.description }}</p>
               </div>
             </div>
           </v-card-title>
@@ -63,8 +50,26 @@
         <v-card>
           <v-card-title primary-title>
             <div>
-              <h3 class="headline text-xs-center mb-0">
-                Status: <v-chip :color="getColor(expense.approved)">{{ expense.approved }}</v-chip></h3>
+              <h3 class="headline text-xs-center mb-1">Employee</h3>
+                <v-divider
+                ></v-divider>
+              <div class="text-left">
+                <p class="font-weight-light mb-0 mt-2">First Name: {{ expense.employee.first_name }}</p>
+                <p class="font-weight-light">Last Name: {{ expense.employee.last_name }}</p>
+              </div>
+            </div>
+          </v-card-title>
+        </v-card>
+      </v-flex>
+
+      <v-flex xs12 sm12 md4>
+        <v-card>
+          <v-card-title primary-title>
+            <div>
+              <h3 class="headline text-xs-center mb-1">
+                Status: <v-chip :color="getColor(expense.approved)">{{ expense.approved }}</v-chip>
+              </h3>
+              <v-divider></v-divider>
               <div class="text-center mt-3">
                 <v-container style="height: 200px;" v-if="isUpdating">
                     <v-row

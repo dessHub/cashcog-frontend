@@ -11,3 +11,8 @@ export const flatenEmployee = data => {
 export const filterExpenses = (status, expenses) => {
   return expenses.filter(item => item.approved === status);
 };
+
+export const getCount = (status, expenses) => {
+  let data = expenses.filter(item => item.approved === status);
+  return data ? data.length : 0;
+};

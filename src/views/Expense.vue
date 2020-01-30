@@ -1,15 +1,15 @@
 <template>
   <span>
-    <expense-header 
-     v-bind:expense="expense" 
-     v-bind:isFetching="isFetching"
-     v-bind:isUpdating="isUpdating"
-     v-bind:updateStatus="updateStatus"
-     v-bind:deleteExpense="deleteExpense"
-     v-bind:errorMessage="errorMessage"
-     v-bind:redirect="redirect"
-     v-bind:isDeleted="isDeleted"
-     ></expense-header>
+    <expense-header
+      v-bind:expense="expense"
+      v-bind:isFetching="isFetching"
+      v-bind:isUpdating="isUpdating"
+      v-bind:updateStatus="updateStatus"
+      v-bind:deleteExpense="deleteExpense"
+      v-bind:errorMessage="errorMessage"
+      v-bind:redirect="redirect"
+      v-bind:isDeleted="isDeleted"
+    ></expense-header>
   </span>
 </template>
 
@@ -25,7 +25,7 @@ export default {
   props: [],
   created() {
     // eslint-disable-next-line no-console
-    console.log("created", this.$route.path)
+    console.log("created", this.$route.path);
     this.$store.dispatch("getExpense", this.$route.path);
   },
   data: () => ({}),
@@ -39,18 +39,18 @@ export default {
     ...mapGetters({ expense: "getOneExpense" })
   },
   methods: {
-      updateStatus(status) {
-          // eslint-disable-next-line no-console
-         console.log("status", status)
-         let payload = { path: this.$route.path, status };
-         this.$store.dispatch("updateExpense", payload)
-      },
-      deleteExpense() {
-         this.$store.dispatch("deleteExpense", this.$route.path)
-      },
-      redirect() {
-        this.$router.push('/');
-      }
+    updateStatus(status) {
+      // eslint-disable-next-line no-console
+      console.log("status", status);
+      let payload = { path: this.$route.path, status };
+      this.$store.dispatch("updateExpense", payload);
+    },
+    deleteExpense() {
+      this.$store.dispatch("deleteExpense", this.$route.path);
+    },
+    redirect() {
+      this.$router.push("/");
+    }
   }
 };
 </script>

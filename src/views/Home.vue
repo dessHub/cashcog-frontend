@@ -5,12 +5,10 @@
       v-bind:approved="getExpenses.approved"
       v-bind:declined="getExpenses.declined"
     ></home-hero>
-    <home-filters
-      v-bind:filterExpense="filterExpense"
-    ></home-filters>
-    <home-table 
+    <home-filters v-bind:filterExpense="filterExpense"></home-filters>
+    <home-table
       v-bind:status="status"
-      v-bind:expenses="getExpenses.expenses" 
+      v-bind:expenses="getExpenses.expenses"
       v-bind:isFetching="isFetching"
       v-bind:filteredExpenses="filteredExpenses"
     ></home-table>
@@ -40,12 +38,10 @@ export default {
       isFetching: state => state.expenses.isFetching,
       status: state => state.expenses.status
     }),
-    ...mapGetters(
-      { 
-        getExpenses: "getExpenselist",
-        filteredExpenses: "expensesByStatus"
-      }
-      )
+    ...mapGetters({
+      getExpenses: "getExpenselist",
+      filteredExpenses: "expensesByStatus"
+    })
   },
   methods: {
     filterExpense(status) {

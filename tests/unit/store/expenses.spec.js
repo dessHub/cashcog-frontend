@@ -1,4 +1,3 @@
-import mockCoins from "../mock/expenses";
 import expenses from "../../../src/store/modules/expenses";
 import mockExpenses from "../mock/expenses";
 
@@ -68,7 +67,7 @@ describe("Expense getters", () => {
 
   it("getExpenselist", () => {
     const state = {
-      expenses: mockCoins,
+      expenses: mockExpenses,
       expense: null,
       status: null,
       isFetching: false,
@@ -82,8 +81,8 @@ describe("Expense getters", () => {
   });
   it("getOneExpense", () => {
     const state = {
-      expenses: mockCoins,
-      expense: mockCoins[0],
+      expenses: mockExpenses,
+      expense: mockExpenses[0],
       status: null,
       isFetching: false,
       isUpdating: false,
@@ -96,7 +95,7 @@ describe("Expense getters", () => {
   });
   it("expensesByStatus", () => {
     const state = {
-      expenses: mockCoins,
+      expenses: mockExpenses,
       expense: null,
       status: "Declined",
       isFetching: false,

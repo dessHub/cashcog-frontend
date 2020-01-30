@@ -1,5 +1,7 @@
 # cashcog-frontend
 
+cashcog-frontend is front facing of [Cashcog Approval API](https://github.com/dessHub/Cashcog-API), which is a extension feature which provide approval process for Cashcog expense management software.
+
 ## Project setup
 ```
 npm install
@@ -30,5 +32,3 @@ npm run lint
 npm run test:unit
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
